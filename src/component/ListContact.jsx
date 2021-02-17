@@ -37,6 +37,15 @@ class ListContact extends Component {
     
     }
 
+    addUserClicked() {
+        this.props.history.push(`/addUser/-1`)
+    }
+
+    updateUserClicked(id) {
+        console.log('update ' + id)
+        this.props.history.push(`/addUser/${id}`)
+    }
+
 
 
     render() {
@@ -63,7 +72,10 @@ class ListContact extends Component {
                                             <td>{users.name}</td>
                                             <td>{users.age}</td>
                                             <td>{users.address}</td>
-                                            <td><button className="btn btn-warning" onClick={() => this.deleteUserClicked(users.id)}>Delete</button></td>
+
+                                            <td>
+                                                <button className="btn btn-success" onClick={() => this.updateUserClicked(users.id)}>Update</button> &nbsp;&nbsp;&nbsp;
+                                                <button className="btn btn-warning" onClick={() => this.deleteUserClicked(users.id)}>Delete</button></td>
                                         </tr>
                                 )
                             }
