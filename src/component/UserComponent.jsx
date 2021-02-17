@@ -36,7 +36,7 @@ class UserComponent extends Component {
     validate(values) {
         let errors = {}
         if (!values.name) {
-            errors.name = 'Enter a Description'
+            errors.name = 'Enter a Name'
         } else if (values.name.length < 5) {
             errors.name = 'Enter atleast 5 Characters in Description'
         }
@@ -75,7 +75,7 @@ class UserComponent extends Component {
 
         return (
             <div>
-                <h3>Course</h3>
+                <h3>Users</h3>
                 <div className="container">
                     <Formik
                         initialValues={{ id, name,age,address }}
@@ -88,8 +88,14 @@ class UserComponent extends Component {
                         {
                             (props) => (
                                 <Form>
-                                    <ErrorMessage name="description" component="div"
-                                        className="alert alert-warning" />
+                                    <ErrorMessage name="id" component="div"
+                                        className="alert alert-danger" />
+                                    <ErrorMessage name="name" component="div"
+                                        className="alert alert-danger" />
+                                    <ErrorMessage name="age" component="div"
+                                        className="alert alert-danger" />
+                                    <ErrorMessage name="address" component="div"
+                                        className="alert alert-danger" />
                                     <fieldset className="form-group">
                                         <label>Id</label>
                                         <Field className="form-control" type="text" name="id" disabled />
